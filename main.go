@@ -12,6 +12,7 @@ func init() {
 func main() {
 	router := utills.SetupRouter()
 	config := utills.Config
+
 	zap.L().Info("Starting server", zap.String("host", config.HOST))
 
 	if err := router.Run(config.HOST); err != nil {

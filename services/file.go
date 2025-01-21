@@ -41,16 +41,14 @@ func TraverseFiles(fs billy.Filesystem, array []os.FileInfo) ([]os.FileInfo, err
 
 	for _, file := range files {
 		if file.IsDir() {
-			dirfs, err := fs.Chroot(file.Name())
 
-			if err != nil {
+			if dirfs, err := fs.Chroot(file.Name()); err != nil {
 				return array, err
-			}
 
-			array, err = TraverseFiles(dirfs, array)
-
-			if err != nil {
-				return array, err
+			} else {
+				if array, err = TraverseFiles(dirfs, array); err != nil {
+					return array, err
+				}
 			}
 		} else {
 			array = append(array, file)

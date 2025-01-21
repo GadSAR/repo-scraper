@@ -8,6 +8,8 @@ cd repo-scraper
 go mod tidy
 ```
 
+Note: dont forget to use .env.example to create .env file
+
 ## Usage
 
 To use Repo Scraper, run the following command:
