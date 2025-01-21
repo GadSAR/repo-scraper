@@ -15,10 +15,19 @@ func LoadConfig() error {
 	}
 
 	Config = &models.Config{
-		HOST:     os.Getenv("HOST"),
-		GIN_MODE: os.Getenv("GIN_MODE"),
+		HOST:     getEnv("HOST", "localhost:8080"),
+		GIN_MODE: getEnv("GIN_MODE", "realase"),
+		ZAP_MODE: getEnv("ZAP_MODE", "development"),
 	}
 
 	return nil
+}
+
+func getEnv(key, defaultValue string) string {
+	value := os.Getenv(key)
+	if value == "" {
+		return defaultValue
+	}
+	return value
 
 }
