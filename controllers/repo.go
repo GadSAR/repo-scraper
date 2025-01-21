@@ -44,6 +44,6 @@ func GetRepoCheck(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"errorMessage": errMsg, "error": err.Error()})
 
 	} else {
-		c.JSON(http.StatusOK, gin.H{"files": services.FormatFiles(files)})
+		c.JSON(http.StatusOK, gin.H{"total": len(files), "files": services.FormatFiles(files)})
 	}
 }
