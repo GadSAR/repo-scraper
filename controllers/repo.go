@@ -17,13 +17,12 @@ func GetRepoCheck(c *gin.Context) {
 	var errMsg string
 	var err error
 
-	zap.L().Info("Repo checkin", zap.String("repo", request.CloneURL), zap.Int("size(MB)", request.Size))
-
 	if err = c.BindJSON(&request); err != nil {
 		errMsg = "Error binding JSON"
 
 	} else {
 		var fs billy.Filesystem
+		zap.L().Info("Repo checkin", zap.String("repo", request.CloneURL), zap.Int("size(MB)", request.Size))
 
 		if fs, err = services.GetRepoFileSystem(request.CloneURL); err != nil {
 			errMsg = "Error getting repo"
