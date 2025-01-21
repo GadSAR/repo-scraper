@@ -51,6 +51,7 @@ func setupRouter() *gin.Engine {
 
 func InitRoutes(router *gin.Engine) {
 	routes.HealthCheckRouter(router)
+	routes.RepoRouter(router)
 }
 
 func InitMiddlewares(router *gin.Engine) {
