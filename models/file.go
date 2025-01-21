@@ -1,6 +1,6 @@
 package models
 
 type File struct {
-	Name string
-	Size int64
+	Name string `json:"name"`
+	Size int64  `json:"size"`
 }

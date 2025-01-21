@@ -7,10 +7,8 @@ import (
 
 func Logger() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		logger := zap.L()
-
-		logger.Info("Request received", zap.String("method", c.Request.Method), zap.String("path", c.Request.URL.Path))
+		zap.L().Info("Request received", zap.String("method", c.Request.Method), zap.String("path", c.Request.URL.Path))
 		c.Next()
-		logger.Info("Request completed", zap.Int("status", c.Writer.Status()))
+		zap.L().Info("Request completed", zap.Int("status", c.Writer.Status()))
 	}
 }
