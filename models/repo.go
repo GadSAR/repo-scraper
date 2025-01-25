@@ -1,8 +1,8 @@
 package models
 
 type CheckRepoRequest struct {
-	CloneURL string `json:"clone_url" binding:"required"`
-	Size     int    `json:"size" binding:"gte=0"`
+	CloneURL string  `json:"clone_url" binding:"required"`
+	Size     float64 `json:"size" binding:"gte=0"`
 }
 
 type CheckRepoResponse struct {
