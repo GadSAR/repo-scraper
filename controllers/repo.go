@@ -32,7 +32,7 @@ func GetRepoCheck(c *gin.Context) {
 				errMsg = "Error traversing files"
 
 			} else {
-				files = services.ExceedThreshold(files, int64(request.Size*1000000))
+				files = services.ExceedThreshold(files, services.MBToBytes(request.Size))
 			}
 		}
 	}

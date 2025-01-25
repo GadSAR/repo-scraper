@@ -16,7 +16,7 @@ func LoadConfig() error {
 
 	Config = &models.Config{
 		HOST:     getEnv("HOST", "localhost:8080"),
-		GIN_MODE: getEnv("GIN_MODE", "realase"),
+		GIN_MODE: getEnv("GIN_MODE", "release"),
 		ZAP_MODE: getEnv("ZAP_MODE", "development"),
 	}
 

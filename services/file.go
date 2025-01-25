@@ -57,3 +57,7 @@ func TraverseFiles(fs billy.Filesystem, array []os.FileInfo) ([]os.FileInfo, err
 
 	return array, nil
 }
+
+func MBToBytes(mb float64) int64 {
+	return int64(mb * 1000000)
+}
